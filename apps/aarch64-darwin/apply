@@ -206,11 +206,11 @@ replace_tokens() {
   if [[ $(basename $1) != "apply" ]]; then
     if [[ "$OS" == "Darwin" ]]; then
       # macOS
-      LC_ALL=C LANG=C sed -i '' -e "s/%USER%/$USERNAME/g" "$file"
-      LC_ALL=C LANG=C sed -i '' -e "s/%EMAIL%/$GIT_EMAIL/g" "$file"
-      LC_ALL=C LANG=C sed -i '' -e "s/%NAME%/$GIT_NAME/g" "$file"
-      LC_ALL=C LANG=C sed -i '' -e "s/%GITHUB_USER%/$GITHUB_USER/g" "$file"
-      LC_ALL=C LANG=C sed -i '' -e "s/%GITHUB_SECRETS_REPO%/$GITHUB_SECRETS_REPO/g" "$file"
+      LC_ALL=C LANG=C sed -i -e "s/%USER%/$USERNAME/g" "$file"
+      LC_ALL=C LANG=C sed -i -e "s/%EMAIL%/$GIT_EMAIL/g" "$file"
+      LC_ALL=C LANG=C sed -i -e "s/%NAME%/$GIT_NAME/g" "$file"
+      LC_ALL=C LANG=C sed -i -e "s/%GITHUB_USER%/$GITHUB_USER/g" "$file"
+      LC_ALL=C LANG=C sed -i -e "s/%GITHUB_SECRETS_REPO%/$GITHUB_SECRETS_REPO/g" "$file"
     else
       # Linux or other
       sed -i -e "s/%USER%/$USERNAME/g" "$file"
